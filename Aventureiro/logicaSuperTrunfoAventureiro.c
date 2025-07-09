@@ -39,7 +39,7 @@ void iniciar() {
     printf("Digite o numeros de pontos turisticos do segundo pais:");
     scanf("%u", &PontosTuristicos2);
     float densidadeDemografica1 = (float) populacao1 / area1;
-    float densidadeDemografica2 = (float) populacao1 / area1;
+    float densidadeDemografica2 = (float) populacao2 / area2;
     printf("================================\n");
     printf("Carta do pais '%s':\n", nomePais1);
     printf("Nome: %s\n", nomePais1);
@@ -67,7 +67,6 @@ void iniciar() {
     printf("Resposta:");
     scanf("%u", &menuRespostaComparacao);
     printf("================================\n");
-
 
     switch (menuRespostaComparacao) {
         case 1:
