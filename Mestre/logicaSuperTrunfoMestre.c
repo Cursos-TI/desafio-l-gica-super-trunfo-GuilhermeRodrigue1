@@ -222,13 +222,14 @@ int iniciar() {
                 printf("Soma dos atributos escolhidos:\n");
                 printf("O Pais '%s' somando os dois atributos escolhidos forma: %.2lf\n", nomePais1, somaAtributosPais1);
                 printf("O Pais '%s' somando os dois atributos escolhidos forma: %.2lf\n", nomePais2, somaAtributosPais2);
-                if (somaAtributosPais1>somaAtributosPais2) {
+
+                if (somaAtributosPais1 > somaAtributosPais2) {
                     printf("O pais '%s' vence a rodada contra '%s'\n", nomePais1, nomePais2);
-                } else if (somaAtributosPais1<somaAtributosPais2) {
+                } else if (somaAtributosPais2 > somaAtributosPais1) {
                     printf("O pais '%s' vence a rodada contra '%s'\n", nomePais2, nomePais1);
                 } else {
                     printf("O pais '%s' e '%s' empatam.\n", nomePais1, nomePais2);
-                }
+                };
 
                 printf("================================\n");
 
