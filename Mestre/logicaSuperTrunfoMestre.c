@@ -11,6 +11,7 @@ int iniciar() {
     char nomePais1[50], nomePais2[50]; // Nome do pais
     unsigned int populacao1, populacao2; // Numero da população do pais
     unsigned int PontosTuristicos1, PontosTuristicos2; // Pontos turisticos do pais
+    unsigned int QuantidadeAtributoVencidosPais1, QuantidadeAtributoVencidosPais2;
     float area1, area2; // Area do pais
     float PIB1, PIB2; // PIB do pais
     unsigned int menuRespostaComparacao1, menuRespostaComparacao2;
@@ -90,6 +91,7 @@ int iniciar() {
                 printf("================================\n");
             } else {
                 printf("Comparacao individual dos atributos:\n");
+
                 // Primeira opção de atributos para comparar.
                 switch (menuRespostaComparacao1) {
                     case 1:
@@ -140,18 +142,19 @@ int iniciar() {
                     case 5:
                         if (densidadeDemografica1>densidadeDemografica2) {
                             printf("Densidade Demografica: O Pais '%s' vence '%s', com a densidade demografica de: %.2f\n", nomePais2, nomePais1, densidadeDemografica2);
-                        } else if (PontosTuristicos1<PontosTuristicos2) {
+                        } else if (densidadeDemografica1<densidadeDemografica2) {
                             printf("Densidade Demografica: O Pais '%s' vence '%s', com a densidade demografica de: %.2f\n", nomePais1, nomePais2, densidadeDemografica1);
                         } else {
                             printf("Densidade Demografica: O Pais '%s' e '%s' deu empate, com a densidade demografica para ambos de: %.2f\n", nomePais1, nomePais2, densidadeDemografica1);
                         };
-                        Atributo1Pais1 = PontosTuristicos1;
-                        Atributo1Pais2 = PontosTuristicos2;
+                        Atributo1Pais1 = densidadeDemografica1;
+                        Atributo1Pais2 = densidadeDemografica2;
                         break;
                     default:
                         printf("Opcao invalida!\n");
                         printf("Saindo do jogo...\n");
                 };
+
                 // Segunda opção de atributos para comparar.
                 switch (menuRespostaComparacao2) {
                     case 1:
@@ -163,8 +166,8 @@ int iniciar() {
                         } else {
                             printf("Populacao: O Pais '%s' e '%s' deu empate, numero de pessoas para ambos: %u\n", nomePais1, nomePais2, populacao1);
                         };
-                        Atributo2Pais1 = populacao1;
-                        Atributo2Pais2 = populacao2;
+                        Atributo1Pais1 = populacao1;
+                        Atributo1Pais2 = populacao2;
                         break;
                     case 2:
                         if (area1>area2) {
@@ -174,8 +177,8 @@ int iniciar() {
                         } else {
                             printf("Area: O Pais '%s' e '%s' deu empate, area do pais para ambos: %.2f\n", nomePais1, nomePais2, area1);
                         };
-                        Atributo2Pais1 = area1;
-                        Atributo2Pais2 = area2;
+                        Atributo1Pais1 = area1;
+                        Atributo1Pais2 = area2;
                         break;
                     case 3:
                         if (PIB1>PIB2) {
@@ -185,8 +188,8 @@ int iniciar() {
                         } else {
                             printf("PIB: O Pais '%s' e '%s' deu empate, PIB do pais para ambos: %.2f\n", nomePais1, nomePais2, PIB1);
                         };
-                        Atributo2Pais1 = PIB1;
-                        Atributo2Pais2 = PIB2;
+                        Atributo1Pais1 = PIB1;
+                        Atributo1Pais2 = PIB2;
                         break;
                     case 4:
                         if (PontosTuristicos1>PontosTuristicos2) {
@@ -196,40 +199,37 @@ int iniciar() {
                         } else {
                             printf("Pontos Turisticos: O Pais '%s' e '%s' deu empate, Pontos Turisticos de ambos os paises: %u\n", nomePais1, nomePais2, PontosTuristicos1);
                         };
-                        Atributo2Pais1 = PontosTuristicos1;
-                        Atributo2Pais2 = PontosTuristicos2;
+                        Atributo1Pais1 = PontosTuristicos1;
+                        Atributo1Pais2 = PontosTuristicos2;
                         break;
                     case 5:
                         if (densidadeDemografica1>densidadeDemografica2) {
                             printf("Densidade Demografica: O Pais '%s' vence '%s', com a densidade demografica de: %.2f\n", nomePais2, nomePais1, densidadeDemografica2);
-                        } else if (PontosTuristicos1<PontosTuristicos2) {
+                        } else if (densidadeDemografica1<densidadeDemografica2) {
                             printf("Densidade Demografica: O Pais '%s' vence '%s', com a densidade demografica de: %.2f\n", nomePais1, nomePais2, densidadeDemografica1);
                         } else {
-                            printf("Densidade Demografica: O Pais '%s' e '%s' deu empate, com a densidade demografica para ambos de: %.2f\n", nomePais2, nomePais1, densidadeDemografica1);
+                            printf("Densidade Demografica: O Pais '%s' e '%s' deu empate, com a densidade demografica para ambos de: %.2f\n", nomePais1, nomePais2, densidadeDemografica1);
                         };
-                        Atributo2Pais1 = densidadeDemografica1;
-                        Atributo2Pais2 = densidadeDemografica2;
+                        Atributo1Pais1 = densidadeDemografica1;
+                        Atributo1Pais2 = densidadeDemografica2;
                         break;
                     default:
                         printf("Opcao invalida!\n");
                         printf("Saindo do jogo...\n");
                 };
 
-                somaAtributosPais1 = (double) Atributo1Pais1 + (double) Atributo2Pais1; // Somando os atributos escolhidos pelo o usuario, do primeiro pais cadastrado
-                somaAtributosPais2 = (double) Atributo1Pais2 + (double) Atributo2Pais2; // Somando os atributos escolhidos pelo o usuario, do segundo pais cadastrado
+                somaAtributosPais1 = Atributo1Pais1 + Atributo2Pais1; // Somando os atributos escolhidos pelo o usuario, do primeiro pais cadastrado
+                somaAtributosPais2 = Atributo1Pais2 + Atributo2Pais2; // Somando os atributos escolhidos pelo o usuario, do segundo pais cadastrado
 
                 printf("================================\n");
                 printf("Soma dos atributos escolhidos:\n");
                 printf("O Pais '%s' somando os dois atributos escolhidos forma: %.2lf\n", nomePais1, somaAtributosPais1);
                 printf("O Pais '%s' somando os dois atributos escolhidos forma: %.2lf\n", nomePais2, somaAtributosPais2);
 
-                if (somaAtributosPais1 > somaAtributosPais2) {
-                    printf("O pais '%s' vence a rodada contra '%s'\n", nomePais1, nomePais2);
-                } else if (somaAtributosPais2 > somaAtributosPais1) {
-                    printf("O pais '%s' vence a rodada contra '%s'\n", nomePais2, nomePais1);
-                } else {
-                    printf("O pais '%s' e '%s' empatam.\n", nomePais1, nomePais2);
-                };
+                // Uso de ternario para tomar decisão de quem ganhou a rodada
+                // Um ternario foi usado dentro de outro ternario.
+                somaAtributosPais1 == somaAtributosPais2? printf("O pais '%s' e '%s' empatam.\n", nomePais1, nomePais2) :
+                somaAtributosPais1>somaAtributosPais2? printf("O pais '%s' vence a rodada contra '%s'\n", nomePais1, nomePais2) : printf("O pais '%s' vence a rodada contra '%s'\n", nomePais2, nomePais1) ;
 
                 printf("================================\n");
 
